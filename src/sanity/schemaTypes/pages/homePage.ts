@@ -1,11 +1,10 @@
 // schemas/homePage.js
-import { heroBlock, textBlock, experienceBlock, skillsBlock } from '../blocks'
+import { heroBlock, textBlock, experienceBlock, skillsBlock, contactBlock, portfolioBlock } from '../blocks'
 
 export default {
   name: 'homePage',
   title: 'Home Page',
-  type: 'document',
-  __experimental_actions: ['update', 'publish'],
+  type: 'document',  
   fields: [
     {
       name: 'title',
@@ -17,7 +16,7 @@ export default {
       name: 'sections',
       title: 'Page Sections',
       type: 'array',
-      of: [heroBlock, textBlock, experienceBlock, skillsBlock],
+      of: [heroBlock, textBlock, experienceBlock, skillsBlock,contactBlock,portfolioBlock],
       description: 'Reorderable content blocks for the home page'
     },
     {
