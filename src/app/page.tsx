@@ -1,103 +1,184 @@
-import Image from "next/image";
+import BlogCard from '@/components/BlogCard'
+import { Mail, Phone,Map } from 'lucide-react'
+import Link from 'next/link'
+import React from 'react'
 
-export default function Home() {
+const page = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className=' lg:flex relative'>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <nav className='
+      bg-white/60 backdrop-blur-md text-black flex items-center justify-between p-4 fixed top-0 left-0 right-0 
+      lg:w-1/2 
+      '>
+        <Link href='/'>
+            <p className='font-semibold text-lg'>Daniel Palmer</p>
+        </Link>
+
+        <div className='flex items-center gap-4'>
+          <Link href='/#about'>About</Link>
+          <Link href='/#portfolio'>Portfolio</Link>
+          <Link href='/#contact'>Contact</Link>
         </div>
+      </nav>
+
+      <section className='min-h-screen lg:hidden bg-accent-100 text-white flex items-center justify-center'>
+        <div className='flex flex-col items-center pt-20  gap-8'>
+          <h1 className='font-bold text-5xl'>Daniel Palmer</h1>
+          <img 
+          className='aspect-square w-90 rounded-md'
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmluYW5jZSUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+          <p className='text-xl text-center'>Finance Content Writer & Ghostwriter | SEO-Optimized Finance Content</p>
+        </div>
+      </section>
+
+      <main className='lg:w-1/2 p-10'>
+        <div className='max-w-5xl mx-auto grid gap-10 py-8 px-4'>
+          {/* about */}
+          <section id='about' className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>About</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-1'>
+              <p>I’m a creative finance content writer and ghostwriter with over five years of experience helping startups, consulting firms, and small businesses grow their online authority through SEO-driven finance content.</p>
+              <p>I specialize in making complex financial topics—like U.S. taxes, retirement planning, budgeting, and financial regulations—clear and engaging. After years of ghostwriting for top clients, I’m now focused on building a bylined portfolio that showcases my expertise.</p>
+            </div>
+          </section>
+
+           {/* Exp */}
+          <section className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>Experience</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-1'>
+              <h3 className='font-semibold'>Freelance Finance Ghostwriter</h3>
+              <span className='font-semibold italic text-sm'>Remote | 2015-Present</span>
+              <ul className='list-disc pl-4 grid gap-0.5'>
+                <li>Delivered high-quality finance content for boutique consulting firms, digital publications, and small businesses.</li>
+                <li>Wrote on U.S. tax regulations, small business finance, employee benefits, and personal finance topics.</li>
+                <li>Produced blogs, whitepapers, and website copy optimized for SEO, keywords, and reader engagement.</li>
+                <li>Collaborated with editors, marketers, and founders to ensure accurate, impactful content.</li>
+                <li>Helped companies grow online authority and organic traffic through consistent, well-researched content.</li>
+              </ul>
+            </div>
+          </section>
+
+           {/* Blogs */}
+          <section id='portfolio' className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>Featured Work</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-2'>
+              {/* blog card */}              
+              <BlogCard/>
+              <BlogCard/>
+              <BlogCard/>
+            </div>
+          </section>
+
+           {/* Education */}
+          <section className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>Education</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-1'>
+              <h3 className='font-semibold'>Associate Degree in Business Administration</h3>
+              <p>Santa Monica College, CA | Graduated: 2014</p>
+            </div>
+          </section>
+
+           {/* Skills */}
+          <section className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>Skills</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-2'>
+              <div>
+                <h3 className='font-semibold'>Finance & Tax Writing</h3>
+                <p>U.S. tax regulations, retirement planning, employee benefits, and small business finance.</p>
+              </div>
+              <div>
+                <h3 className='font-semibold'>Content Strategy & Ghostwriting</h3>
+                <p>Blog articles, whitepapers, website content, and bylined/ghostwritten thought leadership pieces.</p>
+              </div>
+              <div>
+                <h3 className='font-semibold'>SEO & Digital Publishing</h3>
+                <p>Keyword research, metadata optimization, titles/headings, and publishing with WordPress, Ghost, and HubSpot.</p>
+              </div>
+              <div>
+                <h3 className='font-semibold'>Research & Accuracy</h3>
+                <p>Fact-checking, financial compliance, and translating complex topics into approachable insights</p>
+              </div>
+              <div>
+                <h3 className='font-semibold'>Collaboration & Tools</h3>
+                <p>Google Workspace (Docs, Sheets, Slides), content calendars, remote teamwork, and project management under tight deadlines.</p>
+              </div>
+            </div>
+          </section>
+
+           {/* Contact */}
+          <section id='contact' className='grid gap-2'>
+            <div>
+              <h2 className='font-semibold uppercase text-2xl'>Let’s Work Together</h2>
+              <div className='hr'/>
+            </div>
+            <div className='grid gap-3'>
+              <p>Looking for a reliable finance content writer to turn complex topics into clear, SEO-friendly content? I’d love to help.</p>
+              <Link 
+              className='flex items-center gap-2'
+              href=' href="mailto:palmer18daniel@gmail.com"'>
+                <div className='bg-accent-100 text-white h-8 w-8 p-2 flex items-center justify-center rounded-full'>
+                  <Mail />
+                </div>
+                <p>palmer18daniel@gmail.com</p>
+              </Link>              
+              <Link 
+              className='flex items-center gap-2'
+              href='tel:+13107298461'>
+                <div className='bg-accent-100 text-white h-8 w-8 p-2 flex items-center justify-center rounded-full'>
+                  <Phone />
+                </div>
+                <p>(310) 729-8461</p>
+              </Link>
+              <Link 
+              className='flex items-center gap-2'
+              href='#'>
+                <div className='bg-accent-100 text-white h-8 w-8 p-2 flex items-center justify-center rounded-full'>
+                  <Map/>
+                </div>
+                <p>Culver City, CA</p>
+              </Link>
+              
+            </div>
+          </section>
+        </div>
+        <footer className='py-8'>
+          <div className='max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-between'>
+            <p>© 2025 Daniel Palmer. All rights reserved.</p>
+            <p>Finance Content Writer & Ghostwriter | Culver City, CA</p>
+          </div>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <section className='h-screen hidden lg:sticky lg:flex top-0 right-0 lg:w-1/2 bg-accent-100 text-white  items-center justify-center'>
+        <div className='flex flex-col items-center  gap-8'>
+          <h1 className='font-bold text-5xl'>Daniel Palmer</h1>
+          <img 
+          className='aspect-square w-90 rounded-md'
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmluYW5jZSUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+          <p className='text-xl text-center'>Finance Content Writer & Ghostwriter | SEO-Optimized Finance Content</p>
+        </div>
+      </section>
+
+      
+
     </div>
-  );
+  )
 }
+
+export default page
